@@ -44,10 +44,10 @@ export const TextForm = (props) => {
           <textarea className="form-control" value={text} onChange={inputOnChange} rows="8"></textarea>
         </div>
         <button type="button" className="btn btn-primary mx-1" onClick={convertToUppercase}>
-          convert to UPPERCASE{' '}
+          Convert to UPPERCASE{' '}
         </button>
         <button type="button" className="btn btn-primary mx-1" onClick={convertToLowercase}>
-          convert to lowercase
+          Convert to lowercase
         </button>
         <button type="button" className="btn btn-primary mx-1" onClick={convertClearText}>
           Clear Text
