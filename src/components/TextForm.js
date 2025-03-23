@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const TextForm = (props) => {
-  const [text, setText] = useState('this is the default text');
+  const [text, setText] = useState('');
 
   const inputOnChange = (event) => {
     console.log('text', event.target.value);
@@ -41,15 +41,15 @@ export const TextForm = (props) => {
       <div className="container">
         <h1>{props.heading}</h1>
         <div className="form-group">
-          <textarea className="form-control" value={text} onChange={inputOnChange} rows="8"></textarea>
+          <textarea className="form-control border-primary shadow-sm focus-ring" value={text} onChange={inputOnChange} rows="8"></textarea>
         </div>
-        <button type="button" className="btn btn-primary mx-1" onClick={convertToUppercase}>
+        <button type="button" className="btn btn-primary m-2 m" onClick={convertToUppercase}>
           Convert to UPPERCASE{' '}
         </button>
-        <button type="button" className="btn btn-primary mx-1" onClick={convertToLowercase}>
+        <button type="button" className="btn btn-primary m-2" onClick={convertToLowercase}>
           Convert to lowercase
         </button>
-        <button type="button" className="btn btn-primary mx-1" onClick={convertClearText}>
+        <button type="button" className="btn btn-primary m-2" onClick={convertClearText}>
           Clear Text
         </button>
       </div>

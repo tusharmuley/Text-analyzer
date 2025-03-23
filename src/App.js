@@ -4,15 +4,15 @@ import { TextForm } from './components/TextForm';
 
 function App() {
   const links = [
-    { text: 'Home', url: '/' },
-    { text: 'About', url: '/about' },
-    { text: 'Contact', url: '/contact' },
+    // { text: 'Home', url: '/' },
+    // { text: 'About', url: '/about' },
+    // { text: 'Contact', url: '/contact' },
   ];
 
   return (
     <div>
       {/* Props pass kar rahe hain */}
-      <Navbar brand="MyApp" links={links} />
+      <Navbar brand="Text Analyzer" links={links} />
       <TextForm heading="Enter the text to analyze"/>
     </div>
   );
