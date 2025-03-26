@@ -22,8 +22,13 @@ export const TextForm = (props) => {
 
   const convertClearText = () => {
     // console.log('lowercase clicked', { text });
-    const lowerText = "";
-    setText(lowerText);
+    const clearText = "";
+    setText(clearText);
+  };
+
+  const copyText = () =>{
+    navigator.clipboard.writeText(text);
+    alert("Copied the text: "+text)
   };
 
   // New function to count words properly
@@ -51,6 +56,9 @@ export const TextForm = (props) => {
         </button>
         <button type="button" className="btn btn-primary m-2" onClick={convertClearText}>
           Clear Text
+        </button>
+        <button type="button" className="btn btn-primary m-2" onClick={copyText}>
+          Copy Text
         </button>
       </div>
       <div className="container">
