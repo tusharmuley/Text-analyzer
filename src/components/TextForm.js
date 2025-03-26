@@ -33,11 +33,8 @@ export const TextForm = (props) => {
 
   // New function to count words properly
   const getWordCount = (text) => {
-    // Trim the text and replace multiple spaces with single space
     const cleanedText = text.trim().replace(/\s+/g, ' ');
-    // If text is empty, return 0
     if (!cleanedText) return 0;
-    // Split by single space and count
     return cleanedText.split(' ').length;
   };
 

@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { TextForm } from './components/TextForm';
+import About from './components/About';
+// import { TextForm } from './components/TextForm';
 
 function App() {
   const links = [
@@ -13,7 +14,8 @@ function App() {
     <div>
       {/* Props pass kar rahe hain */}
       <Navbar brand="Text Analyzer" links={links} />
-      <TextForm heading="Enter the text to analyze"/>
+      {/* <TextForm heading="Enter the text to analyze"/> */}
+      <About></About>
     </div>
   );
 }
