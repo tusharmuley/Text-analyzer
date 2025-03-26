@@ -31,6 +31,16 @@ export const TextForm = (props) => {
     alert("Copied the text: "+text)
   };
 
+  const handleExtraSpaces = () => {
+    const text = document.getElementById('mytext').value;
+    setText(
+        text
+            .split('\n') // Newline ke basis pe split karo
+            .map(line => line.trim().replace(/\s+/g, ' ')) // Har line ke andar ke extra spaces ko remove karo
+            .join('\n') // Wapas newline ke saath join karo
+    );
+};
+
   // New function to count words properly
   const getWordCount = (text) => {
     const cleanedText = text.trim().replace(/\s+/g, ' ');
@@ -43,7 +53,7 @@ export const TextForm = (props) => {
       <div className="container">
         <h1>{props.heading}</h1>
         <div className="form-group">
-          <textarea className="form-control border-primary shadow-sm focus-ring" value={text} onChange={inputOnChange} rows="8"></textarea>
+          <textarea className="form-control border-primary shadow-sm focus-ring" value={text} onChange={inputOnChange} rows="8" id="mytext"></textarea>
         </div>
         <button type="button" className="btn btn-primary m-2 m" onClick={convertToUppercase}>
           Convert to UPPERCASE{' '}
@@ -54,9 +64,8 @@ export const TextForm = (props) => {
         <button type="button" className="btn btn-primary m-2" onClick={convertClearText}>
           Clear Text
         </button>
-        <button type="button" className="btn btn-primary m-2" onClick={copyText}>
-          Copy Text
-        </button>
+        <button type="button" className="btn btn-primary m-2" onClick={copyText}>Copy Text</button>
+        <button type="button" className="btn btn-primary m-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
       </div>
       <div className="container">
         <h1>Text Summary</h1>
