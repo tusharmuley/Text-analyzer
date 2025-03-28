@@ -1,14 +1,11 @@
 import React from 'react';
 
-const Navbar = ({ brand, links }) => {
+const Navbar = ({ brand, links,toggleMode, mode }) => {
   return (
-    
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme={mode}>
         <div className="container-fluid container">
           <a className="navbar-brand" href="/">{brand}</a>
-          <button 
-            className="navbar-toggler" 
-            type="button" 
+          <button className="navbar-toggler" type="button" 
             data-bs-toggle="collapse" 
             data-bs-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent" 
@@ -26,9 +23,12 @@ const Navbar = ({ brand, links }) => {
               ))}
             </ul>
           </div>
+          <div className={`form-check form-switch text-${mode === 'light'?'dark':'light'}`}>
+            <input onClick={toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+            <label className="form-check-label" htmlfor="flexSwitchCheckDefault">Enable DarkMode</label>
+          </div>
         </div>
       </nav>  
-    
   );
 };
 

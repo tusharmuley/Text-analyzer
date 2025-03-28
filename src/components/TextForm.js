@@ -50,10 +50,10 @@ export const TextForm = (props) => {
 
   return (
     <>
-      <div className="container">
-        <h1>{props.heading}</h1>
+      <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
+        <h1 >{props.heading}</h1>
         <div className="form-group">
-          <textarea className="form-control border-primary shadow-sm focus-ring" value={text} onChange={inputOnChange} rows="8" id="mytext"></textarea>
+          <textarea className="form-control border-primary shadow-sm focus-ring" value={text} onChange={inputOnChange} rows="8" id="mytext" style={{backgroundColor:props.mode==='dark'?'#042743':'white', color:props.mode==='dark'?'white':'#042743'}}></textarea>
         </div>
         <button type="button" className="btn btn-primary m-2 m" onClick={convertToUppercase}>
           Convert to UPPERCASE{' '}
@@ -67,14 +67,14 @@ export const TextForm = (props) => {
         <button type="button" className="btn btn-primary m-2" onClick={copyText}>Copy Text</button>
         <button type="button" className="btn btn-primary m-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
       </div>
-      <div className="container">
+      <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h1>Text Summary</h1>
         <p>
           {getWordCount(text)} words and {text.length} characters
         </p>
         <p>{(0.008 * getWordCount(text)).toFixed(2)} sec will take to read.</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length >0?text:'Write something to preview here'}</p>
       </div>
     </>
   );
