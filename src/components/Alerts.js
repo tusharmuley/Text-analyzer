@@ -5,7 +5,7 @@ export default function Alerts(props) {
     return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
  }
   return (
-    props.alerts && <div className='container'>
+    props.alerts && <div className='container fixed-bottom'>
         <div className={`alert alert-${props.alerts.type} d-flex align-items-center`} role="alert">
             <div>
                 {capitalized(props.alerts.type)} : {props.alerts.msg}
