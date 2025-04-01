@@ -12,23 +12,31 @@ export const TextForm = (props) => {
     console.log('uppercase clicked', { text });
     const upperText = text.toUpperCase();
     setText(upperText);
+    props.showAlertMsg("converted in uppercase", 'success')
   };
 
   const convertToLowercase = () => {
     console.log('lowercase clicked', { text });
     const lowerText = text.toLowerCase();
     setText(lowerText);
+    props.showAlertMsg("converted in lowercase", 'success')
   };
 
   const convertClearText = () => {
     // console.log('lowercase clicked', { text });
+    if (text.length === 0){
+      props.showAlertMsg("empty text found", 'warning')
+      return
+    }
     const clearText = "";
     setText(clearText);
+    props.showAlertMsg("clear the text successfully", 'success')
   };
 
   const copyText = () =>{
     navigator.clipboard.writeText(text);
-    alert("Copied the text: "+text)
+    // alert("Copied the text: "+text)
+    props.showAlertMsg("successfully copied the text", 'success')
   };
 
   const handleExtraSpaces = () => {
@@ -39,6 +47,7 @@ export const TextForm = (props) => {
             .map(line => line.trim().replace(/\s+/g, ' ')) // Har line ke andar ke extra spaces ko remove karo
             .join('\n') // Wapas newline ke saath join karo
     );
+    props.showAlertMsg("Removed the extra spaces from text.", 'success')
 };
 
   // New function to count words properly
@@ -72,7 +81,7 @@ export const TextForm = (props) => {
         <p>
           {getWordCount(text)} words and {text.length} characters
         </p>
-        <p>{(0.008 * getWordCount(text)).toFixed(2)} sec will take to read.</p>
+        <p>{(0.08 * getWordCount(text)).toFixed(2)} sec will take to read.</p>
         <h2>Preview</h2>
         <p>{text.length >0?text:'Write something to preview here'}</p>
       </div>
