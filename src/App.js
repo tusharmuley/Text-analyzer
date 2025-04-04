@@ -2,13 +2,20 @@ import { useState } from 'react';
 import './App.css';
 import Alerts from './components/Alerts';
 import Navbar from './components/Navbar';
-// import About from './components/About';
+import About from './components/About';
 import { TextForm } from './components/TextForm';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   const links = [
     // { text: 'Home', url: '/' },
-    // { text: 'About', url: '/about' },
+    { text: 'About', url: '/about' },
     // { text: 'Contact', url: '/contact' },
   ];
 
@@ -36,13 +43,25 @@ function App() {
   }
 
   return (
-    <div>
-      {/* Props pass kar rahe hain */}
-      <Navbar brand="Text Analyzer" mode={mode} links={links} toggleMode={toggleMode} />
-      <Alerts alerts={alertMsg}/>
-      <TextForm heading="Enter the text to analyze" mode={mode} showAlertMsg={showAlertMsg}/>
-      {/* <About></About> */}
-    </div>
+    <Router>
+      <div>
+        {/* Props pass kar rahe hain */}
+        <Navbar brand="Text Analyzer" mode={mode} links={links} toggleMode={toggleMode} />
+        <Alerts alerts={alertMsg}/>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={
+            <TextForm
+              heading="Enter the text to analyze"
+              mode={mode}
+              showAlertMsg={showAlertMsg}
+            />
+          } />
+        </Routes>
+      </div>
+
+    </Router>
+    
   );
 }
 
