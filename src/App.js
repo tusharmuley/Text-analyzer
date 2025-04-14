@@ -3,20 +3,20 @@ import './App.css';
 import Alerts from './components/Alerts';
 import Navbar from './components/Navbar';
 import About from './components/About';
+import Summarizer from './components/Summarizer';
 import { TextForm } from './components/TextForm';
 
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
   const links = [
     // { text: 'Home', url: '/' },
     { text: 'About', url: '/about' },
-    // { text: 'Contact', url: '/contact' },
+    { text: 'AI Text Summarizer', url: '/summarizer' },
   ];
 
   const [mode, setmode] =useState('light')
@@ -49,15 +49,18 @@ function App() {
         <Navbar brand="Text Analyzer" mode={mode} links={links} toggleMode={toggleMode} />
         <Alerts alerts={alertMsg}/>
         <Routes>
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About mode={mode}/>} />
           <Route path="/" element={
             <TextForm
-              heading="Enter the text to analyze"
+              heading="Enter the text to Manipulate"
               mode={mode}
               showAlertMsg={showAlertMsg}
             />
           } />
+
+          <Route path="/summarizer" element={<Summarizer mode={mode} />} />
         </Routes>
+        
       </div>
 
     </Router>
