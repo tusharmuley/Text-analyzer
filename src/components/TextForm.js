@@ -112,7 +112,6 @@ export const TextForm = (props) => {
 async function summarizeText(text) {
   // console.log("KEY:", process.env.REACT_APP_HF_API_KEY); // 🧪 Check this in console
 
-  
   const response = await fetch("https://api-inference.huggingface.co/models/facebook/bart-large-cnn", {
     method: "POST",
     headers: {
